@@ -24,7 +24,7 @@ class Php53 < AbstractPhp
   depends_on "flex" => :build
   depends_on "homebrew/versions/bison27" => :build
 
-  depends_on "libevent" unless build.without? "fpm"
+  depends_on "libevent" if build.with? "fpm"
 
   option "disable-zend-multibyte", "Disable auto-detection of Unicode encoded scripts"
 
@@ -54,4 +54,3 @@ class Php53 < AbstractPhp
     sha256 "3c3157bc5c4346108a398798b84dbbaa13409c43d3996bea2ddacb3277e0cee2"
   end
 end
-
